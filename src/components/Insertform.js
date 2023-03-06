@@ -3,36 +3,6 @@ import Axios from 'axios'
 import '../index.css'
 
 function Insertdata(props) {
-    const url = ""
-    const [data, setData] = useState({
-        firstname:"",
-        lastname:"",
-        email:"",
-        password:"",
-        city:"",
-        state:"",
-        zip:""
-    })
-    
-    function submit(e){
-        e.preventDefault();
-        Axios.post(url, {
-            firstname:data.firstname,
-            lastname:data.lastname,
-            email:data.email,
-            password:data.password,
-            city:data.city,
-            state:data.state,
-            zip:data.zip
-        }).then(res => console.log(res.data))
-    }
-
-    function handle(e){
-        const newData = {...data}
-        newData[e.target.id] = e.target.value
-        setData(newData)
-        console.log(newData)
-    } 
 
   return (props.trigger)?(
 
@@ -47,19 +17,19 @@ function Insertdata(props) {
                     <div className="px-6 py-6 lg:px-8 grid h-screen place-items-center">
                         <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Register Account</h3>
                         
-                        <form onSubmit={(e)=> submit(e)} className="w-full max-w-lg">
+                        <form className="w-full max-w-lg">
                             <div className="flex flex-wrap -mx-3 mb-6">
                                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     First Name
                                 </label>
-                                <input onChange={(e) => handle(e)} value={data.firstname} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="firstname" type="text" placeholder="Jane"></input>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="firstname" type="text" placeholder="Saiful"></input>
                                 </div>
                                 <div className="w-full md:w-1/2 px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Last Name
                                 </label>
-                                <input onChange={(e) => handle(e)} value={data.lastname} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="lastname" type="text" placeholder="Doe"></input>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="lastname" type="text" placeholder="Islam"></input>
                                 </div>
                             </div>
                             <div className="flex flex-wrap -mx-3 mb-6">
@@ -67,7 +37,7 @@ function Insertdata(props) {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Email
                                 </label>
-                                <input onChange={(e) => handle(e)} value={data.email} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="email@example.com"></input>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="email@example.com"></input>
                                 </div>
                             </div>
                             <div className="flex flex-wrap -mx-3 mb-6">
@@ -75,7 +45,7 @@ function Insertdata(props) {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Password
                                 </label>
-                                <input onChange={(e) => handle(e)} value={data.password} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" type="password" placeholder="******************"></input>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" type="password" placeholder="******************"></input>
                                 <p className="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
                                 </div>
                             </div>
@@ -84,14 +54,14 @@ function Insertdata(props) {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     City
                                 </label>
-                                <input onChange={(e) => handle(e)} value={data.city} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="city" type="text" placeholder="Albuquerque"></input>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="city" type="text" placeholder="Albuquerque"></input>
                                 </div>
                                 <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     State
                                 </label>
                                 <div className="relative">
-                                    <select onChange={(e) => handle(e)} value={data.state} className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state">
+                                    <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="state">
                                     <option>New Mexico</option>
                                     <option>Missouri</option>
                                     <option>Texas</option>
@@ -105,7 +75,7 @@ function Insertdata(props) {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Zip
                                 </label>
-                                <input onChange={(e) => handle(e)} value={data.zip} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="zip" type="text" placeholder="90210"></input>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="zip" type="text" placeholder="90210"></input>
                                 </div>
                                 <div className="w-full px-3 flex flex-col justify-center items-center mt-5">
                                 <button  className="bg-blue-500 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
